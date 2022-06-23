@@ -1,0 +1,32 @@
+version: "2"
+services:
+  server:
+    container_name: angular-basics
+    image: angular-basics
+    build: .
+    ports: 
+      - "8080:8080"
+    env_file: .env
+    environment: 
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_DB=$MONGO_DB
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+    networks:
+      - app-network
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports: 
+      - "27017:27017"
+    env_file: .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

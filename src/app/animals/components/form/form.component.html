@@ -1,0 +1,42 @@
+<div class="background">
+    <div class="form">
+        <form [formGroup]="form" (ngSubmit)="send()">
+            <h2>Create animal</h2>
+            <div>
+                <label>Type:</label>
+                <input id="type-input" type="text" placeholder="Type" formControlName="type">
+                <small *ngIf="form.controls['type'].invalid && form.controls['type'].touched">Invalid type</small>
+            </div>
+            <div>
+                <label>Name:</label>
+                <input id="name-input" type="text" placeholder="Name" formControlName="name">
+                <small *ngIf="form.controls['name'].invalid && form.controls['name'].touched">Invalid name</small>
+            </div>
+            <div>
+                <label>Age:</label>
+                <input type="text" placeholder="Age" formControlName="age">
+                <small *ngIf="form.controls['age'].invalid && form.controls['age'].touched">Invalid age</small>
+            </div>
+            <div>
+                <label>City:</label>
+                <input type="text" placeholder="City" formControlName="city">
+            </div>
+            <div>
+                <label>Price:</label>
+                <input type="text" placeholder="Price" formControlName="price">
+                <small *ngIf="form.controls['price'].invalid && form.controls['price'].touched">Invalid price</small>
+            </div>
+            <div>
+                <label>Color:</label>
+                <input type="text" placeholder="Color" formControlName="color">
+            </div>
+            <div>
+                <label>Favorite food:</label>
+                <input type="text" placeholder="Favorite food" formControlName="favoriteFood">
+            </div>
+    
+            <button class="waves-effect waves-light btn" type="submit" [disabled]="form.invalid" id="send-button">send</button>
+            <button class="waves-effect waves-light btn" type="reset" [routerLink]="['']">cancel</button>
+        </form>
+    </div>
+</div>

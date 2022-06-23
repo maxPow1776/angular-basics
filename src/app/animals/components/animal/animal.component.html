@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="header" (click)="isOpen = !isOpen">
+        <p class="main-text">Type: {{animal.type}}</p>
+        <p class="main-text">Name: {{animal.name}}</p>
+        <app-info [animal]="animal" [isOpen]="isOpen"></app-info>
+    </div>
+    <div class="footer">
+        <a id="edit-button" class="waves-effect waves-light btn" [routerLink]="['/pet', animal.id]">edit</a>
+        <button id="delete-button" class="waves-effect waves-light btn" (click)="delete()">delete</button>
+    </div>
+</div>

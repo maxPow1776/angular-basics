@@ -1,0 +1,6 @@
+<div *ngIf="isOpen">
+    <ul *ngIf="moreInfo.length > 0">
+        <li *ngFor="let info of moreInfo">{{info}}</li>
+    </ul>
+    <p *ngIf="moreInfo.length === 0">The animal has no additional information</p>
+</div>

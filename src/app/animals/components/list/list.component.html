@@ -1,0 +1,13 @@
+<div class="app">
+  <div class="header">
+    <h1>Angular basics</h1>
+    <div class="buttons">
+      <button id="filter-cats" class="waves-effect waves-light btn" style="width:115px;" (click)="filterCats()">{{withCats ? 'Hide cats' : 'Show cats'}}</button>
+      <button id="create-animal" class="waves-effect waves-light btn" [routerLink]="['', 'create']">create animal</button>
+    </div>
+  </div>
+  <div class="cards-content">
+    <app-animal *ngFor="let animal of animals$ | async" [animal]="animal"></app-animal>
+  </div>
+</div>
+<router-outlet></router-outlet>
